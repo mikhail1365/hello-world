@@ -1,3 +1,3 @@
-# hello-world
-My first repository in github
+# about me
+
 My name is Mike
