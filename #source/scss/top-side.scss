@@ -11,6 +11,8 @@
 
 $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 .inside-menu {
+	position: relative;
+	z-index: 1;
 	&:hover &__row {
 		background-color: $inside-menu-bgcolor;
 		color: blue;
@@ -74,7 +76,7 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 
 .top-side {
 	// padding: 10px;
-	margin: 40px;
+	margin: 40px 0;
 	// height: 150px;
 	background: grey;
 	// background: url("../../img/bg_chess.jpg") 0 0 /cover ;
@@ -133,6 +135,7 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 				border: 1px solid black;
 				// border-right: 0;
 				margin-right: 0px;
+				font-style: italic;
 
 				&:hover {
 					// box-shadow: 0 2px 3px 0 blue;

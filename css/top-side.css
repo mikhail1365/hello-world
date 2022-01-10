@@ -9,6 +9,8 @@
 
 .inside-menu {
   position: relative;
+  z-index: 1;
+  position: relative;
 }
 
 .inside-menu:hover .inside-menu__row {
@@ -54,7 +56,7 @@
 }
 
 .top-side {
-  margin: 40px;
+  margin: 40px 0;
   background: grey;
 }
 
@@ -105,6 +107,7 @@
           flex: 1 1 auto;
   border: 1px solid black;
   margin-right: 0px;
+  font-style: italic;
 }
 
 .menu__bar__row__element a {

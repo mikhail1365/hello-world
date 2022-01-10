@@ -13,7 +13,7 @@
 
 body {
 	// padding: 30px;
-	padding-left: 3px;
+	// padding-left: 3px;
 	// padding-left: 5%;
 	font-size: 20px;
 	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
@@ -68,11 +68,13 @@ body {
 
 $wid_1: 10px;
 h1 {
+	font-style: italic;
+
 	font-family: "Conv_CALIFR";
 	// font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	// font-family: "Times New Roman";
 	// padding-top: 15px;
-	margin-bottom: 15px;
+	margin-top: 15px;
 	color: black;
 	// font-style: italic;
 	font-size: 40px;
@@ -82,87 +84,174 @@ h1 {
 	// margin-bottom: 50px;
 	// font-size: 20px;
 	// content: '';
-	position: relative;
-	z-index: 0;
+	// position: relative;
+	// z-index: 0;
 }
 
 // $height_top_li: 3.4 * $wid_1;
 $height_top_li: 5 * $wid_1;
 
-
 .top {
 	// display:flex;
 	// flex-direction: column;
-	border: 3px solid green;
-	
+	margin-top: 20px;
+	width: 90%;
 	&__rows {
-		
-		display:flex;
+		border: 3px solid green;
+
+		display: flex;
 		flex-direction: row;
+		justify-content: space-between;
 	}
-	
+
 	&__column {
-		flex: 0 0 30%;
+		// flex: 0 1 50%;
+
 		border: 3px solid red;
 	}
 	// &__element{
 	// }
 }
 
+.right-navbar {
+	flex: 0 1 25%;
+}
 .champions {
-	// flex-basis: 25%;
+	flex: 0 1 60%;
+	// flex: 1 1 auto;
 	// border: 3px solid yellow;
 	&__rows {
 		// width:
-		// display: flex;
-		// flex-wrap: wrap;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 10px -10px;
 	}
-	
-	&__columns {
+
+	&__column {
+		// height: 100%;
+		display: flex;
+		padding: 10px 10px;
+		flex-direction: column;
 		// display: flex
+		flex: 0 1 50%;
+		border: 2px solid green;
 	}
 
 	&__element {
+		// display: flex;
 	}
 }
 
-// .menu li {
-// 	&:hover {
-// 		background-color: rgba(17, 178, 199, 0.342);
-// 		color: blue;
-// 		font-weight: 700;
-// 		position: relative;
-// 		top: 2px;
-// 		left: 2px;
-// 		@extend .orange_box;
-// 		background: orange;
-// 		// box-shadow: 0 2px 3px 0 blue;
-// 	}
-// 	height: $height_top_li;
-// 	font-size: 24px;
-// 	font-style: oblique;
-// 	// height: 35px;
-// 	position: relative;
-// 	// padding: $wid_1 * 0.8;
-// 	padding: $wid_1 * 1.2;
-// 	text-align: center;
-// 	// font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-// 	font-weight: 600;
-// 	background-color: rgb(0, 174, 255);
-// 	// 	// display:block
-// 	// 	// float: left;
-// 	// 	&:hover ul {
-// 	// 		// width: 160px;
+.Player {
+	&__text {
+		padding: 5px;
+		// margin: 5px;
+		border: 2px solid black;
+		&:hover {
+			box-shadow: 0 0 10px 5px rgba(40, 114, 224, 0.623);
+		}
+	}
+	&__title {
+		font-size: 25px;
+		&:hover {
+		text-decoration: underline;
+		}
+		text-align: center;
+		// color: rgb(19, 0, 190);
+		color: rgb(255, 0, 0);
 
-// 	// 		// float: top;
-// 	// 		display: block;
-// 	// 		background: grey;
-// 	// 	}
-// }
+		font-weight: 700;
+		margin-bottom: 5px;
+	}
+}
+
+.boigraphy {
+	// height: 100%;
+	opacity: 0;
+	text-align: left;
+	color: rgba(27, 27, 27, 0.897);
+	// padding: 3%;
+	// font-size: 14px;
+	font-weight: 500;
+	width: 100%;
+	height: 100%;
+	&:hover {
+		color: black;
+		// opacity: 0.8;
+		opacity: 1;
+		outline: 5px solid white;
+		background-color: white;
+	}
+}
+.menu li {
+	&:hover {
+		background-color: rgba(17, 178, 199, 0.342);
+		color: blue;
+		font-weight: 700;
+		position: relative;
+		top: 2px;
+		left: 2px;
+		@extend .orange_box;
+		background: orange;
+		// box-shadow: 0 2px 3px 0 blue;
+	}
+	height: $height_top_li;
+	font-size: 24px;
+	font-style: oblique;
+	// height: 35px;
+	position: relative;
+	// padding: $wid_1 * 0.8;
+	padding: $wid_1 * 1.2;
+	text-align: center;
+	// font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+	font-weight: 600;
+	background-color: rgb(0, 174, 255);
+	// 	// display:block
+	// 	// float: left;
+	// 	&:hover ul {
+	// 		// width: 160px;
+
+	// 		// float: top;
+	// 		display: block;
+	// 		background: grey;
+	// 	}
+}
 
 .champ-header {
+	margin: 25px 0;
+	padding-top: 10px;
 	font-size: 24px;
 	color: black;
+	border: 2px solid grey;
+	font-style: italic;
+
+}
+
+.Magnus {
+	flex: 1 1 auto;
+	background: url("../img/magnus-karlsen-4.jpg") 50% 50% / cover no-repeat;
+}
+
+.Anand {
+	flex: 1 1 auto;
+	// background: url("../img/vishi.jpg") 25% 50% / cover no-repeat;
+	background: url("../img/kramnik.jpg") 50% 50% / cover no-repeat;
+	// background: url("../img/vishi.jpg") 50% 50% / cover no-repeat;
+}
+
+.Kramnik {
+	flex: 1 1 100%;
+	background: url("../img/vishi.jpg") 50% 50% / cover no-repeat;
+	// background: url("../img/kramnik.jpg") 50% 50% / cover no-repeat;
+}
+.Kasparov {
+	flex: 1 1 100%;
+	background: url("../img/GKasparov.jpg") 50% 50% / cover no-repeat;
+}
+
+.bottom-side {
+	background: url("../img/bg_chess.jpg") 0 0 / cover no-repeat;
+	// opacity: 0.7;
 }
 // .menu ul .button:nth-child(2){
 // .menu li a:nth-child(odd){
@@ -171,6 +260,9 @@ $height_top_li: 5 * $wid_1;
 // color:green;
 // font-size: 30px;
 // }
+
+
+
 /*
 
 .submit:active {
@@ -203,6 +295,7 @@ form .submit {
 }
 
 
+
 $height_rn: 500px;
 $width_rn: 300px;
 .right-navbar {
@@ -225,7 +318,9 @@ $item_h: 50px;
 @mixin bg_right_nav{
 	background-color: rgba(128, 0, 128, 0.493);
 }
+
 .bottom-side {
+	background: url("../img/bg_chess.jpg") 0 0 /cover no-repeat;
 	// margin-left: 200px;
 
 	height: 800px;
@@ -233,7 +328,6 @@ $item_h: 50px;
 	// background-color: rgba(15, 125, 158, 0.349);
 	// width: 100%;
 	// width: 100%;
-	background: url("../img/bg_chess.jpg") 0 0 /cover no-repeat;
 
 	&__row {
 		// border: 5px solid rgb(41, 225, 231);
