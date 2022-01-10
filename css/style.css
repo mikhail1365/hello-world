@@ -198,6 +198,7 @@ h1, h2, h3, h4, h5, h6 {
   color: blue;
   font-weight: 100;
   font-family: 'Conv_CALIFR';
+  font-size: 24px;
 }
 
 .menu__bar__panel div {
@@ -211,7 +212,6 @@ body {
   min-width: 1300px;
   height: 2300px;
   margin: 0 auto;
-  border: 2px solid red;
 }
 
 .container {
@@ -279,13 +279,9 @@ h1 {
 }
 
 .top__column {
-  border: 3px solid red;
-}
-
-.right-navbar {
   -webkit-box-flex: 0;
-      -ms-flex: 0 1 25%;
-          flex: 0 1 25%;
+      -ms-flex: 0 1 50%;
+          flex: 0 1 50%;
 }
 
 .champions {
@@ -416,6 +412,147 @@ h1 {
 
 .bottom-side {
   background: url("../img/bg_chess.jpg") 0 0/cover no-repeat;
+}
+
+.right-navbar {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 30%;
+          flex: 0 1 30%;
+  border: 10px solid grey;
+}
+
+.right-navbar__column {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border: 10px solid yellow;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 auto;
+          flex: 0 1 auto;
+}
+
+.right-navbar__row {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  outline: 2px solid black;
+}
+
+.right-navbar__title {
+  background-color: #77df77;
+  background-color: rgba(67, 215, 235, 0.719);
+  font-size: 22px;
+  text-align: center;
+  padding: 12px;
+  /*
+		&_1:hover .right-navbar__img_1 {
+			display: flex;
+			// float: left;
+			// width: 100%;
+			width: 100px;
+			height: 100px;
+			border: 2px solid green;
+			// width: 100px;
+			background: url("../img/zakat.jpg") right / cover no-repeat;
+			float: right;
+		}
+		*/
+}
+
+.right-navbar__title:hover {
+  background-color: orange;
+}
+
+.right-navbar__title_1:hover ~ .right-navbar__item_1 {
+  display: block;
+  background-color: rgba(67, 215, 235, 0.719);
+}
+
+.right-navbar__title_2:hover ~ .right-navbar__item_2 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(67, 215, 235, 0.719);
+}
+
+.right-navbar__title_3:hover ~ .right-navbar__item_3 {
+  display: block;
+  background-color: rgba(67, 215, 235, 0.719);
+}
+
+.right-navbar__title_4:hover ~ .right-navbar__item_4 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: rgba(67, 215, 235, 0.719);
+}
+
+.right-navbar__item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid black;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  display: none;
+}
+
+.right-navbar__text {
+  font-size: 16px;
+  padding: 10px;
+}
+
+.right-navbar__img {
+  margin: 10px;
+}
+
+.right-navbar__img_1 {
+  border: 2px solid green;
+  width: 130px;
+  height: 130px;
+  background: url("../img/right_nav_1.jpg") center/contain no-repeat;
+  float: right;
+}
+
+.right-navbar__img_2 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+  background: url("../img/right_nav_2.jpg") center/contain no-repeat;
+}
+
+.right-navbar__img_3 {
+  width: 130px;
+  height: 130px;
+  float: left;
+  background: url("../img/right_nav_3.jpg") center/cover no-repeat;
+  margin-bottom: 10px;
+}
+
+.right-navbar__img_4 {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 200px;
+          flex: 0 0 200px;
+  background: url("../img/right_nav_4.jpg") center/cover no-repeat;
+  margin-bottom: 10px;
+}
+
+.img_1 {
+  border: 3px solid red;
+  width: 50%;
 }
 
 /*
