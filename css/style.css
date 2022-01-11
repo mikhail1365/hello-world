@@ -141,7 +141,7 @@ h1, h2, h3, h4, h5, h6 {
           transition-duration: 0.5s;
 }
 
-.orange_box, .hover-func, .inside-menu__element:hover, .menu__bar__row__element:hover {
+.orange_box, .hover-func, .inside-menu__element:hover, .menu__element:hover {
   background-color: orange;
   -webkit-box-shadow: 0 2px 3px 0 blue;
           box-shadow: 0 2px 3px 0 blue;
@@ -152,10 +152,9 @@ h1, h2, h3, h4, h5, h6 {
   background: grey;
 }
 
-.hover-func, .inside-menu__element:hover, .menu__bar__row__element:hover {
+.hover-func, .inside-menu__element:hover, .menu__element:hover {
   background-color: rgba(17, 178, 199, 0.342);
   color: blue;
-  font-weight: 700;
   position: relative;
   top: 2px;
   left: 2px;
@@ -180,14 +179,18 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px;
 }
 
-.menu__bar__row {
+.menu__bar__panel div {
+  display: none;
+}
+
+.menu__row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   text-align: center;
 }
 
-.menu__bar__row__element {
+.menu__element {
   height: 35px;
   padding: 5px 0;
   background-color: rgba(67, 215, 235, 0.719);
@@ -201,15 +204,11 @@ h1, h2, h3, h4, h5, h6 {
           transition-duration: 0.5s;
 }
 
-.menu__bar__row__element a {
+.menu__element a {
   color: blue;
   font-weight: 100;
   font-family: "Conv_CALIFR";
   font-size: 24px;
-}
-
-.menu__bar__panel div {
-  display: none;
 }
 
 @media (max-width: 767px) {
@@ -219,17 +218,18 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body {
+  background-color: #fcffe3;
   font-size: 20px;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-  background-color: white;
   min-width: 1300px;
-  height: 2300px;
+  height: 2500px;
   margin: 0 auto;
 }
 
 .container {
   margin: 0 auto;
   width: 1300px;
+  border: 3px solid blueviolet;
 }
 
 .navigation ul {
@@ -273,6 +273,8 @@ h1 {
 }
 
 .top {
+  width: 100%;
+  border: 3px solid red;
   margin-top: 20px;
   width: 90%;
 }
@@ -309,6 +311,7 @@ h1 {
   -webkit-box-flex: 0;
       -ms-flex: 0 1 60%;
           flex: 0 1 60%;
+  border: 3px solid yellow;
 }
 
 .champions__rows {
@@ -318,6 +321,7 @@ h1 {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 10px -10px;
+  border: 5px solid red;
 }
 
 .champions__column {
@@ -334,20 +338,20 @@ h1 {
           flex: 0 1 50%;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
-  border: 5px solid green;
 }
 
-.Player__text {
+.player__text {
   padding: 5px;
   border: 2px solid black;
 }
 
-.Player__text:hover {
+.player__text:hover {
   -webkit-box-shadow: 0 0 10px 5px rgba(40, 114, 224, 0.623);
           box-shadow: 0 0 10px 5px rgba(40, 114, 224, 0.623);
 }
 
-.Player__title {
+.player__title {
+  font-family: "Conv_CALIFR";
   font-size: 25px;
   text-align: center;
   color: red;
@@ -355,7 +359,7 @@ h1 {
   margin-bottom: 5px;
 }
 
-.Player__title:hover {
+.player__title:hover {
   text-decoration: underline;
 }
 
@@ -377,46 +381,45 @@ h1 {
   background-color: white;
 }
 
-.champ-header {
-  margin: 25px 0;
-  padding-top: 10px;
-  font-size: 24px;
-  color: black;
-  font-style: italic;
-  background: url("../../img/1.png") 0 4px/contain no-repeat;
-  padding-left: 40px;
-}
-
-.Magnus {
+.magnus {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   background: url("../img/magnus-karlsen-4.jpg") 50% 50%/cover no-repeat;
 }
 
-.Anand {
+.anand {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   background: url("../img/kramnik.jpg") 50% 50%/cover no-repeat;
 }
 
-.Kramnik {
+.kramnik {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
   background: url("../img/vishi.jpg") 50% 50%/cover no-repeat;
 }
 
-.Kasparov {
+.kasparov {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
   background: url("../img/GKasparov.jpg") 50% 50%/cover no-repeat;
 }
 
+.menu__title {
+  padding: 10px;
+  font-family: "Conv_CALIFR";
+  text-align: center;
+  font-size: 46px;
+  font-style: italic;
+  color: #850000;
+}
+
 .bottom-side {
-  background: url("../img/bg_chess.jpg") 0 0/cover no-repeat;
+  background: url("../img/bg_chess.jpg") center/cover no-repeat fixed;
 }
 
 .right-navbar {
@@ -455,8 +458,10 @@ h1 {
 }
 
 .right-navbar__title {
-  background-color: #77df77;
+  font-family: " Verdana";
+  font-style: italic;
   background-color: rgba(67, 215, 235, 0.719);
+  font-weight: 600;
   font-size: 22px;
   text-align: center;
   padding: 12px;
@@ -468,24 +473,24 @@ h1 {
   background-color: orange;
 }
 
-.right-navbar__title_1:hover ~ .right-navbar__item_1 {
+.right-navbar__title-1:hover ~ .right-navbar__item-1 {
   display: block;
   background-color: rgba(67, 215, 235, 0.719);
 }
 
-.right-navbar__title_2:hover ~ .right-navbar__item_2 {
+.right-navbar__title-2:hover ~ .right-navbar__item-2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   background-color: rgba(67, 215, 235, 0.719);
 }
 
-.right-navbar__title_3:hover ~ .right-navbar__item_3 {
+.right-navbar__title-3:hover ~ .right-navbar__item-3 {
   display: block;
   background-color: rgba(67, 215, 235, 0.719);
 }
 
-.right-navbar__title_4:hover ~ .right-navbar__item_4 {
+.right-navbar__title-4:hover ~ .right-navbar__item-4 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -509,13 +514,25 @@ h1 {
 .right-navbar__text {
   font-size: 16px;
   padding: 10px;
+  /*
+		&_1 {
+			// flex: 0 1 50%;
+			// border: 2px solid blue;
+		}
+		&_2 {
+		}
+		&-3 {
+		}
+		&-4 {
+		}
+		*/
 }
 
 .right-navbar__img {
   margin: 10px;
 }
 
-.right-navbar__img_1 {
+.right-navbar__img-1 {
   -webkit-transition-duration: 1s;
           transition-duration: 1s;
   width: 130px;
@@ -524,14 +541,14 @@ h1 {
   float: right;
 }
 
-.right-navbar__img_2 {
+.right-navbar__img-2 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 200px;
           flex: 0 0 200px;
   background: url("../img/right_nav_2.jpg") center/contain no-repeat;
 }
 
-.right-navbar__img_3 {
+.right-navbar__img-3 {
   width: 130px;
   height: 130px;
   float: left;
@@ -539,7 +556,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.right-navbar__img_4 {
+.right-navbar__img-4 {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 200px;
           flex: 0 0 200px;
@@ -547,7 +564,7 @@ h1 {
   margin-bottom: 10px;
 }
 
-.img_1 {
+.img-1 {
   border: 3px solid red;
   width: 50%;
 }
@@ -598,12 +615,58 @@ h1 {
   text-align: bottom;
 }
 
+.news__main-title, .chess-tasks__title, .champ-header {
+  background-color: #fff;
+  padding: 5px 0;
+  margin-bottom: 10px;
+  font-size: 34px;
+  color: #850000;
+  font-family: " Verdana";
+  font-weight: 900;
+  font-style: italic;
+  position: relative;
+  background-color: #fcffe3;
+  padding-left: 40px;
+}
+
+.news__main-title::before, .chess-tasks__title::before, .champ-header::before {
+  width: 35px;
+  height: 35px;
+  background: url("../../img/1.png") 0 0/auto 100% no-repeat;
+  content: '';
+  position: absolute;
+  margin-left: -40px;
+  margin-top: 7px;
+}
+
+.chess-tasks__title::before, .champ-header::before {
+  top: -3px;
+}
+
 .news {
   height: 400px;
   font-size: 25px;
   line-height: 1.5;
   font-weight: 500;
   font-family: "Times New Roman", Times, Baskerville, Georgia, serif;
+}
+
+.news__film {
+  height: 100%;
+  background: url("../img/Royal_game.jfif") 50px 0/contain no-repeat;
+  line-height: 25px;
+}
+
+.news__film div span {
+  font-weight: bold;
+}
+
+.news__world-cup {
+  padding-top: 50px;
+  display: none;
+  height: 100%;
+  background-color: black;
+  background: url("../img/match.jpg") 50px 50%/45% auto no-repeat;
 }
 
 .news-elements {
@@ -617,39 +680,35 @@ h1 {
   text-align: center;
 }
 
-.news-elements__film {
-  height: 100%;
-  background: url("../img/Royal_game.jfif") 50px 0/contain no-repeat;
-  line-height: 25px;
-  padding-left: 400px;
-  padding-top: 50px;
+.news-film {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 2px solid gold;
+  margin: -10px;
 }
 
-.news-elements__film:active {
-  display: none;
+.news-film__img {
+  padding: 10px;
+  border: 2px solid black;
+  width: 100%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 30%;
+          flex: 0 1 30%;
+  background: url("../img/Royal_game.jfif") center/contain no-repeat;
 }
 
-.news-elements__film:active + .news-elements__world-cup {
-  display: block;
-}
-
-.news-elements__film div span {
-  font-weight: bold;
-}
-
-.news-elements__world-cup {
-  padding-top: 50px;
-  display: none;
-  height: 100%;
-  background-color: black;
-  background: url("../img/match.jpg") 50px 50%/45% auto no-repeat;
+.news-film__text {
+  padding: 10px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 1 60%;
+          flex: 0 1 60%;
 }
 
 .foot {
   font-style: italic;
   background-color: grey;
   height: 200px;
-  width: 1200px;
   padding: 30px;
   font-weight: 600;
   color: white;

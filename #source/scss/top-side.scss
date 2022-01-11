@@ -39,8 +39,8 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 		display: none;
 	}
 	&__column {
-		// border: 1px solid black;
 		transition-duration: $time-delay-top;
+		// border: 1px solid black;
 		flex: 1 1 auto;
 	}
 	&__element {
@@ -64,10 +64,6 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	}
 }
 
-.inside-menu__element_1,
-.inside-menu__element_2 {
-	// border-bottom: 2px solid $inside-menu-bgcolor;
-}
 
 .orange_box {
 	background-color: orange;
@@ -90,13 +86,13 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 .hover-func {
 	background-color: rgba(17, 178, 199, 0.342);
 	color: blue;
-	font-weight: 700;
 	position: relative;
 	top: 2px;
 	left: 2px;
 	@extend .orange_box;
 	background: orange;
 	font-family: "Conv_CALIFR";
+	
 }
 
 .menu {
@@ -120,46 +116,45 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 		// justify-content: start;
 		justify-self: start;
 		padding: 10px;
-		&__row {
-			// display: flex;
-			// justify-content: space-around ;
-			display: flex;
-			// justify-content: space-between;
-			text-align: center;
-
-			&__element {
-				height: 35px;
-				padding: 5px 0;
-				// border-radius: 100px;
-				// color: red;
-				// background-color: green;
-				background-color: $inside-menu-bgcolor;
-				flex: 1 1 auto;
-				border: 1px solid black;
-				// border-right: 0;
-				margin-right: 0px;
-				font-style: italic;
-
-				transition-duration: $time-delay-top;
-				&:hover {
-					// box-shadow: 0 2px 3px 0 blue;
-					@extend .hover-func;
-				}
-				& a {
-					// background-color: $inside-menu-bgcolor;
-					color: blue;
-					font-weight: 100;
-					font-family: "Conv_CALIFR";
-					font-size: 24px;
-				}
-			}
-		}
-		&__column {
-		}
 		&__panel div {
 			display: none;
 		}
 	}
+	&__row {
+		// display: flex;
+		// justify-content: space-around ;
+		display: flex;
+		// justify-content: space-between;
+		text-align: center;
+
+	}
+	&__element {
+		height: 35px;
+		padding: 5px 0;
+		// border-radius: 100px;
+		// color: red;
+		// background-color: green;
+		background-color: $inside-menu-bgcolor;
+		flex: 1 1 auto;
+		border: 1px solid black;
+		// border-right: 0;
+		margin-right: 0px;
+		font-style: italic;
+
+		transition-duration: $time-delay-top;
+		&:hover {
+			// box-shadow: 0 2px 3px 0 blue;
+			@extend .hover-func;
+		}
+		& a {
+			// background-color: $inside-menu-bgcolor;
+			color: blue;
+			font-weight: 100;
+			font-family: "Conv_CALIFR";
+			font-size: 24px;
+		}
+	}
+
 }
 
 @media (max-width: 767px) {

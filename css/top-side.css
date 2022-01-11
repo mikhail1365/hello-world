@@ -57,7 +57,7 @@
           transition-duration: 0.5s;
 }
 
-.orange_box, .hover-func, .inside-menu__element:hover, .menu__bar__row__element:hover {
+.orange_box, .hover-func, .inside-menu__element:hover, .menu__element:hover {
   background-color: orange;
   -webkit-box-shadow: 0 2px 3px 0 blue;
           box-shadow: 0 2px 3px 0 blue;
@@ -68,10 +68,9 @@
   background: grey;
 }
 
-.hover-func, .inside-menu__element:hover, .menu__bar__row__element:hover {
+.hover-func, .inside-menu__element:hover, .menu__element:hover {
   background-color: rgba(17, 178, 199, 0.342);
   color: blue;
-  font-weight: 700;
   position: relative;
   top: 2px;
   left: 2px;
@@ -96,14 +95,18 @@
   padding: 10px;
 }
 
-.menu__bar__row {
+.menu__bar__panel div {
+  display: none;
+}
+
+.menu__row {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   text-align: center;
 }
 
-.menu__bar__row__element {
+.menu__element {
   height: 35px;
   padding: 5px 0;
   background-color: rgba(67, 215, 235, 0.719);
@@ -117,15 +120,11 @@
           transition-duration: 0.5s;
 }
 
-.menu__bar__row__element a {
+.menu__element a {
   color: blue;
   font-weight: 100;
   font-family: "Conv_CALIFR";
   font-size: 24px;
-}
-
-.menu__bar__panel div {
-  display: none;
 }
 
 @media (max-width: 767px) {
