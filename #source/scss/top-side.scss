@@ -1,16 +1,17 @@
 @font-face {
-	font-family: 'Conv_CALIFR';
-	src: url('../fonts/CALIFR.eot');
-	src: local('☺'), url('../fonts/CALIFR.woff') format('woff'), url('fonts/CALIFR.ttf') format('truetype'), url('fonts/CALIFR.svg') format('svg');
+	font-family: "Conv_CALIFR";
+	src: url("../fonts/CALIFR.eot");
+	src: local("☺"), url("../fonts/CALIFR.woff") format("woff"), url("fonts/CALIFR.ttf") format("truetype"),
+		url("fonts/CALIFR.svg") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
 
-
-
+$time-delay-top: 0.5s;
 
 $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 .inside-menu {
+	transition-duration: $time-delay-top;
 	position: relative;
 	z-index: 1;
 	&:hover &__row {
@@ -34,10 +35,12 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	}
 	position: relative;
 	&__row {
+		transition-duration: $time-delay-top;
 		display: none;
 	}
 	&__column {
 		// border: 1px solid black;
+		transition-duration: $time-delay-top;
 		flex: 1 1 auto;
 	}
 	&__element {
@@ -53,6 +56,8 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 		background-color: $inside-menu-bgcolor;
 		// border-radius: 10px;
 		// @extend .orange_box;
+		transition-duration: $time-delay-top;
+
 		&:hover {
 			@extend .hover-func;
 		}
@@ -68,11 +73,9 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	background-color: orange;
 	// background-color: rgba(17, 178, 199, 0.342);
 	// background-color: rgba(67, 215, 235, 0.719);
-	
 
 	box-shadow: 0 2px 3px 0 blue;
 }
-
 
 .top-side {
 	// padding: 10px;
@@ -93,7 +96,7 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	left: 2px;
 	@extend .orange_box;
 	background: orange;
-	font-family: 'Conv_CALIFR';
+	font-family: "Conv_CALIFR";
 }
 
 .menu {
@@ -104,13 +107,13 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	// align-items: center;
 	// justify-content: center;
 	// justify-content: start;
-	border: 2px solid green;
+	// border: 2px solid green;
 	// justify-content: center;
 	&__bar {
 		width: 80%;
 
 		// height: 200px;
-		border: 2px solid red;
+		// border: 2px solid red;
 		// width: 100%;
 		// display: flex;
 
@@ -128,7 +131,7 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 				height: 35px;
 				padding: 5px 0;
 				// border-radius: 100px;
-				color: red;
+				// color: red;
 				// background-color: green;
 				background-color: $inside-menu-bgcolor;
 				flex: 1 1 auto;
@@ -137,6 +140,7 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 				margin-right: 0px;
 				font-style: italic;
 
+				transition-duration: $time-delay-top;
 				&:hover {
 					// box-shadow: 0 2px 3px 0 blue;
 					@extend .hover-func;
@@ -145,7 +149,7 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 					// background-color: $inside-menu-bgcolor;
 					color: blue;
 					font-weight: 100;
-					font-family: 'Conv_CALIFR';
+					font-family: "Conv_CALIFR";
 					font-size: 24px;
 				}
 			}
@@ -158,6 +162,9 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	}
 }
 
-// .last-item-menu {
-// 	border-right: 2px solid black;
-// }
+@media (max-width: 767px) {
+	.menu__bar {
+		// width: 100%;
+		width: 60%;
+	}
+}
