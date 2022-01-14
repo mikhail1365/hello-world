@@ -339,12 +339,13 @@ h1 {
 }
 
 .champions__rows {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  margin: 10px -10px;
+  margin: 0 auto;
 }
 
 .champions__column {
@@ -363,12 +364,37 @@ h1 {
           transition-duration: 0.5s;
 }
 
+@media (max-width: 370px) {
+  .champions__column {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 60%;
+            flex: 1 1 60%;
+  }
+  .player__title {
+    border: 2px solid red;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 10%;
+            flex: 0 0 10%;
+  }
+  .player__text {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 0 90%;
+            flex: 1 0 90%;
+  }
+  .right-navbar {
+    margin-top: 10px;
+  }
+}
+
 .player__text {
   padding: 5px;
   border: 2px solid black;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 70%;
+          flex: 1 0 70%;
 }
 
 .player__text:hover {
@@ -389,8 +415,8 @@ h1 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
+      -ms-flex: 0 0 20%;
+          flex: 0 0 20%;
   -ms-flex-item-align: center;
       align-self: center;
   height: 80px;
@@ -407,7 +433,6 @@ h1 {
 }
 
 .biography {
-  overflow: hidden;
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
   opacity: 0;
@@ -434,14 +459,14 @@ h1 {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  background: url("../img/kramnik.jpg") 50% 50%/cover no-repeat;
+  background: url("../img/vishi.jpg") 50% 50%/cover no-repeat;
 }
 
 .kramnik {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 100%;
           flex: 1 1 100%;
-  background: url("../img/vishi.jpg") 50% 50%/cover no-repeat;
+  background: url("../img/kramnik.jpg") 50% 50%/cover no-repeat;
 }
 
 .kasparov {
@@ -452,11 +477,17 @@ h1 {
 }
 
 @media (max-width: 955px) {
+  .top {
+    margin: 0 auto;
+  }
   .top__rows {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
   }
   .kasparov,
   .magnus,

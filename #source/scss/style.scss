@@ -172,10 +172,11 @@ $height_top_li: 5 * $wid_1;
 	// flex: 1 1 auto;
 	border: 3px solid yellow;
 	&__rows {
-		// width:
+		width: 100%;
 		display: flex;
 		flex-wrap: wrap;
-		margin: 10px -10px;
+		// margin: 10px -10px;
+		margin: 0 auto;
 		// border: 5px solid red;
 	}
 
@@ -193,6 +194,26 @@ $height_top_li: 5 * $wid_1;
 	}
 }
 
+@media (max-width: 370px) {
+	.champions {
+		&__column {
+			// width: 60%;
+			flex: 1 1 60%;
+		}
+	}
+	.player {
+		&__title {
+			border: 2px solid red;
+			flex: 0 0 10%;
+		}
+		&__text {
+			flex: 1 0 90%;
+		}
+	}
+	.right-navbar {
+		margin-top: 10px;
+	}
+}
 .player-1,
 .player-2,
 .player-3,
@@ -206,6 +227,7 @@ $height_top_li: 5 * $wid_1;
 		border: 2px solid black;
 		// overflow: scroll;
 		display: flex;
+		flex: 1 0 70%;
 		&:hover {
 			overflow: auto;
 			box-shadow: 0 0 10px 5px rgba(40, 114, 224, 0.623);
@@ -223,7 +245,7 @@ $height_top_li: 5 * $wid_1;
 	}
 	&__title {
 		display: flex;
-		flex: 0 0 auto;
+		flex: 0 0 20%;
 		// align-self: flex-end;
 		align-self: center;
 		height: 80px;
@@ -244,7 +266,7 @@ $height_top_li: 5 * $wid_1;
 }
 
 .biography {
-	overflow: hidden;
+	// overflow: hidden;
 
 	transition-duration: 0.3s;
 
@@ -314,13 +336,13 @@ $height_top_li: 5 * $wid_1;
 
 	flex: 1 1 auto;
 	// background: url("../img/vishi.jpg") 25% 50% / cover no-repeat;
-	background: url("../img/kramnik.jpg") 50% 50% / cover no-repeat;
+	background: url("../img/vishi.jpg") 50% 50% / cover no-repeat;
 	// background: url("../img/vishi.jpg") 50% 50% / cover no-repeat;
 }
 
 .kramnik {
 	flex: 1 1 100%;
-	background: url("../img/vishi.jpg") 50% 50% / cover no-repeat;
+	background: url("../img/kramnik.jpg") 50% 50% / cover no-repeat;
 	// background: url("../img/kramnik.jpg") 50% 50% / cover no-repeat;
 }
 .kasparov {
@@ -329,8 +351,12 @@ $height_top_li: 5 * $wid_1;
 }
 
 @media (max-width: 955px) {
-	.top__rows {
-		flex-direction: column;
+	.top {
+		margin: 0 auto;
+		&__rows {
+			flex-direction: column;
+			justify-content: space-between;
+		}
 	}
 	.kasparov,
 	.magnus,
@@ -763,7 +789,6 @@ $img_wid: 130px;
 	// display: flex;
 	border: 2px solid gold;
 	&__container {
-		
 		// width: 800px;
 		width: 100%;
 		height: 100%;
