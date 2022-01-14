@@ -346,20 +346,21 @@ h1 {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin: 0 auto;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
 }
 
 .champions__column {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  padding: 10px 10px;
+  padding: 15px 15px;
+  margin: 10px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 50%;
-          flex: 1 1 50%;
+      -ms-flex: 1 1 40%;
+          flex: 1 1 40%;
   -webkit-transition-duration: 0.5s;
           transition-duration: 0.5s;
 }
@@ -389,16 +390,9 @@ h1 {
 .player__text {
   padding: 5px;
   border: 2px solid black;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 70%;
-          flex: 1 0 70%;
 }
 
 .player__text:hover {
-  overflow: auto;
   -webkit-box-shadow: 0 0 10px 5px rgba(40, 114, 224, 0.623);
           box-shadow: 0 0 10px 5px rgba(40, 114, 224, 0.623);
 }
@@ -406,7 +400,7 @@ h1 {
 .player__text:hover .biography {
   color: black;
   opacity: 1;
-  outline: 5px solid white;
+  outline: 6px solid white;
   background-color: white;
 }
 
@@ -414,12 +408,13 @@ h1 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-flex: 0;
-      -ms-flex: 0 0 20%;
-          flex: 0 0 20%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 20%;
+          flex: 1 0 20%;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   -ms-flex-item-align: center;
       align-self: center;
-  height: 80px;
   font-family: "Conv_CALIFR";
   font-size: 25px;
   text-align: center;
@@ -433,13 +428,17 @@ h1 {
 }
 
 .biography {
-  -webkit-transition-duration: 0.3s;
-          transition-duration: 0.3s;
+  -webkit-transition-duration: 3s, 0.3s;
+          transition-duration: 3s, 0.3s;
+  -webkit-transition-property: opacity, -webkit-box-shadow;
+  transition-property: opacity, -webkit-box-shadow;
+  transition-property: box-shadow, opacity;
+  transition-property: box-shadow, opacity, -webkit-box-shadow;
+  height: 100%;
   opacity: 0;
   text-align: left;
   color: rgba(27, 27, 27, 0.897);
   font-weight: 500;
-  width: 100%;
 }
 
 .top-side {
@@ -495,6 +494,16 @@ h1 {
   .kramnik {
     background-position: top;
     background-size: contain;
+  }
+  .champions__column {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 10px 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
 }
 

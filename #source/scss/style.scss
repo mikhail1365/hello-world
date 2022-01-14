@@ -163,7 +163,6 @@ $height_top_li: 5 * $wid_1;
 	}
 }
 
-//todo картинки Магнуса и АНанда изменяются не одинаково в размере
 //todo  Последние новости: текст вылезает за пределы. Надо либо изменить высоту блока, либо уменьшить шрифт
 
 .champions {
@@ -178,15 +177,18 @@ $height_top_li: 5 * $wid_1;
 		// margin: 10px -10px;
 		margin: 0 auto;
 		// border: 5px solid red;
+		justify-content: space-evenly;
 	}
 
 	&__column {
 		// height: 100%;
-		display: flex;
-		padding: 10px 10px;
+		// display: flex;
+		padding: 15px 15px;
+		margin: 10px;
 		flex-direction: column;
 		// display: flex
-		flex: 1 1 50%;
+		// flex: 1 1 50%;
+		flex: 1 1 40%;
 		// border: 3px solid red;
 
 		transition-duration: $time-delay-main;
@@ -198,6 +200,7 @@ $height_top_li: 5 * $wid_1;
 	.champions {
 		&__column {
 			// width: 60%;
+			
 			flex: 1 1 60%;
 		}
 	}
@@ -220,16 +223,19 @@ $height_top_li: 5 * $wid_1;
 .player-4 {
 	// position: relative;
 }
+
 .player {
 	&__text {
+		// height: 300px;
+
 		padding: 5px;
-		// margin: 5px;
 		border: 2px solid black;
 		// overflow: scroll;
-		display: flex;
-		flex: 1 0 70%;
+		// display: flex;
+		// flex: 1 1 50%;
+		// flex: 1 1 auto;
 		&:hover {
-			overflow: auto;
+			// overflow: auto;
 			box-shadow: 0 0 10px 5px rgba(40, 114, 224, 0.623);
 			// &:hover {
 			.biography {
@@ -237,18 +243,18 @@ $height_top_li: 5 * $wid_1;
 
 				// opacity: 0.8;
 				opacity: 1;
-				outline: 5px solid white;
+				outline: 6px solid white;
 				background-color: white;
-				// height: auto;
+				
 			}
 		}
 	}
 	&__title {
 		display: flex;
-		flex: 0 0 20%;
-		// align-self: flex-end;
+		flex: 1 0 20%;
+		align-self: flex-end;
 		align-self: center;
-		height: 80px;
+		// height: 80px;
 		// justify-self: center;
 		// border: 4px solid grey;
 		font-family: "Conv_CALIFR";
@@ -267,10 +273,13 @@ $height_top_li: 5 * $wid_1;
 
 .biography {
 	// overflow: hidden;
+	// padding: 3px;
 
-	transition-duration: 0.3s;
-
-	// height: 100%;
+	transition-duration: 3s, 0.3s;
+	transition-property: box-shadow, opacity;
+	height: 100%;
+	// height: 200px;
+	// height: auto;
 	opacity: 0;
 	// overflow: hidden;
 	text-align: left;
@@ -278,7 +287,9 @@ $height_top_li: 5 * $wid_1;
 	// padding: 3%;
 	// font-size: 14px;
 	font-weight: 500;
-	width: 100%;
+	// width: 100%;
+	// height: 100%;
+
 	// height: 50%;
 	// height: auto;
 	// height: 300px;
@@ -333,7 +344,6 @@ $height_top_li: 5 * $wid_1;
 	// overflow: scroll;
 
 	border: 2px solid gold;
-
 	flex: 1 1 auto;
 	// background: url("../img/vishi.jpg") 25% 50% / cover no-repeat;
 	background: url("../img/vishi.jpg") 50% 50% / cover no-repeat;
@@ -371,6 +381,22 @@ $height_top_li: 5 * $wid_1;
 		// background-size: auto 100%;
 		// background-size: 100% auto;
 		// background-size: 100% 100%;
+	}
+	.champions {
+		&__column {
+			// height: 100%;
+			display: flex;
+			padding: 10px 10px;
+			flex-direction: column;
+			// display: flex
+			// flex: 1 1 50%;
+			// flex: 0 0 50%;
+			// padding: 30px;
+		}
+		&__rows {
+			// margin: -30px;
+		}
+		//12
 	}
 }
 
@@ -515,7 +541,7 @@ $img_wid: 130px;
 			// float: right;
 			// flex: 0 0 $f-bas;
 			// flex: 0 0 100%;
-			// border: 2px solid green;ыы
+			// border: 2px solid green;
 			transition-duration: 1s;
 
 			width: $img_wid;
