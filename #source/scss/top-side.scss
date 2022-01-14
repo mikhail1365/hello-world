@@ -7,11 +7,11 @@
 	font-style: normal;
 }
 
-$time-delay-top: 0.5s;
+$time-delay-top: 1s;
 
 $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 .inside-menu {
-	transition-duration: $time-delay-top;
+	// transition-duration: $time-delay-top;
 	position: relative;
 	z-index: 1;
 	&:hover &__row {
@@ -35,11 +35,11 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	}
 	position: relative;
 	&__row {
-		transition-duration: $time-delay-top;
+		// transition-duration: $time-delay-top;
 		display: none;
 	}
 	&__column {
-		transition-duration: $time-delay-top;
+		// transition-duration: $time-delay-top;
 		// border: 1px solid black;
 		flex: 1 1 auto;
 	}
@@ -63,7 +63,6 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 		}
 	}
 }
-
 
 .orange_box {
 	background-color: orange;
@@ -89,10 +88,14 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	position: relative;
 	top: 2px;
 	left: 2px;
+	// transition-duration: 2s, 2s, 2s;
+	// transition-property: top, left, background-color;
+	// transition: top, left, background-color, 1s;
+	transition:  1s;
+	transition-property: all;
 	@extend .orange_box;
 	background: orange;
 	font-family: "Conv_CALIFR";
-	
 }
 
 .menu {
@@ -106,7 +109,7 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	// border: 2px solid green;
 	// justify-content: center;
 	&__bar {
-		width: 80%;
+		width: 90%;
 
 		// height: 200px;
 		// border: 2px solid red;
@@ -126,11 +129,10 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 		display: flex;
 		// justify-content: space-between;
 		text-align: center;
-
 	}
 	&__element {
 		height: 35px;
-		padding: 5px 0;
+		padding: 5px 5px;
 		// border-radius: 100px;
 		// color: red;
 		// background-color: green;
@@ -141,7 +143,8 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 		margin-right: 0px;
 		font-style: italic;
 
-		transition-duration: $time-delay-top;
+		// transition-duration: $time-delay-top;
+		// transition-property: position;
 		&:hover {
 			// box-shadow: 0 2px 3px 0 blue;
 			@extend .hover-func;
@@ -154,12 +157,17 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 			font-size: 24px;
 		}
 	}
-
 }
+
+
 
 @media (max-width: 767px) {
 	.menu__bar {
 		// width: 100%;
-		width: 60%;
+		// width: 60%;
+	}
+	.menu__element{
+		// height: 50px;
+		// font-size: 50px;
 	}
 }
