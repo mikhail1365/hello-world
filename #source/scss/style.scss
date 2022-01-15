@@ -7,10 +7,67 @@
 	font-style: normal;
 }
 
-@import "nullstyle.scss";
-// @import "right_nb.scss";
-@import "top-side.scss";
+@mixin bord($width: 2px, $color: black) {
+	border: $width solid $color;
+}
+// .menu, .menu__bar{
 
+// width: 100%;
+// }
+// .menu__row{
+// width: 100%;
+// position: relative;
+// }
+
+//todo с пом space between развести в стороны бургер и меню вверху
+//todo можно  "шахматы" сделать на одном уровне с бургером после 767 px, а потом меню выставить под полоской, в которой бургер и "шахматы"
+.menu__burger {
+	// position: absolute;
+	// right: 0;
+	display: none;
+	margin-left: 25px;
+	min-width: 35px;
+	min-height: 35px;
+}
+@media (max-width: 767px) {
+	$burg-height: 35px;
+
+	.menu__burger {
+		display: block;
+		position: relative;
+		right: 0;
+		width: 35px;
+		height: 35px;
+		&:before,
+		&:after {
+			content: "";
+			background-color: rgb(0, 0, 0);
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			left: 0;
+		}
+		&:before {
+			top: 0;
+		}
+		&:after {
+			bottom: 0;
+		}
+		span {
+			background-color: rgb(0, 0, 0);
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			left: 0;
+			top: $burg-height/2;
+		}
+	}
+}
+
+@import "_nullstyle.scss";
+// @import "right_nb.scss";
+@import "_top-side.scss";
+// @import "_news.scss"
 $time-delay-main: 0.5s;
 
 $bgColor: rgb(252, 255, 227);
@@ -39,14 +96,21 @@ body {
 	overflow: hidden;
 	margin: 0 20px;
 }
+
 .container {
 	margin: 0 auto;
-	max-width: 1300px;
-	// width: 1300px;
-	// border: 3px solid blueviolet;
-	// height: 2300px;
-	// margin: 20;
-	// padding: 50px;
+	max-width: 1400px;
+	// widt
+
+	// margin-left: 150px;
+
+	max-width: 1200px;
+	width: 100%;
+	height: 100%;
+	// height:80%;
+	@include bord(3px, green);
+
+	// border: 2px solid purple;
 }
 
 @media (max-width: 1200px) {
@@ -61,80 +125,106 @@ body {
 	}
 }
 
-// .navigation{
-// 	// position: sticky;
-// 	position: fixed;
-// }
+.navigation {
+	margin-top: 20px;
+	border-radius: 0 10px;
+	content: "";
+	z-index: 1;
+	background-color: black;
+	opacity: 0.9;
+	// position: sticky;
+	position: fixed;
+	padding: 3px;
+	right: 1%;
+	// border: 1px solid black;
+	&:hover {
+		ul {
+			display: block;
+		}
+		.but-nav-bloat {
+			display: none;
+		}
+	}
+	// &__row{
+	// }
+}
 
+.but-nav-bloat {
+	font-size: 20px;
+}
 .navigation ul {
-	margin-top: 200px;
-	float: left;
+	display: none;
+
+	// margin-top: 20px;
+	// float: right;
 }
 .navigation li a {
+	font-size: 20px;
 	color: rgb(71, 218, 255);
+	// padding: 0 20px;
 	&:hover {
 		text-transform: uppercase;
 	}
 }
 .navigation ul li {
-	width: 170px;
-	height: 60px;
+	width: 200px;
+	// height: 60px;
 	font-weight: 600;
 	// color: red;
-	padding: 5px;
+	padding: 10px;
 	margin-bottom: 5px;
-	border: 1px solid purple;
-	background-color: grey;
+	border: 2px solid purple;
+	// background-color: grey;
 	border-radius: 0 10px;
 }
-.container {
-	// margin-left: 150px;
-	max-width: 1200px;
-	height: 80%;
-	// border: 2px solid purple;
+
+.but-nav-bloat {
+	position: absolute;
+	top: 3px;
+	// right: 10px;
+	background-color: black;
+	color: white;
+	font-weight: 700;
+	right: 30px;
+	width: 60px;
+	height: 60px;
+	// background-color: $inside-menu-bgcolor;
+	border-radius: 50%;
+	border: 2px solid black;
+	&:hover {
+		display: none;
+		+ .container ul {
+			display: block;
+		}
+		box-shadow: 0 0 5px 4px orange;
+	}
 }
+
+.top-side {
+	@include bord(3px, red);
+}
+
 
 $wid_1: 10px;
-/*
-h1 {
-	font-style: italic;
 
-	font-family: "Conv_CALIFR";
-	// font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-	// font-family: "Times New Roman";
-	// padding-top: 15px;
-	margin-top: 15px;
-	color: black;
-	// font-style: italic;
-	font-size: 40px;
-	font-weight: 600;
-	// padding-left: 10px;
-	// text-align: center;
-	// margin-bottom: 50px;
-	// font-size: 20px;
-	// content: '';
-	// position: relative;
-	// z-index: 0;
-}
-*/
-// $height_top_li: 3.4 * $wid_1;
 $height_top_li: 5 * $wid_1;
 
 //! top-side
 .top {
-	width: 100%;
 	// border: 3px solid red;
 
 	// display:flex;
 	// flex-direction: column;
-	margin-top: 20px;
-	width: 95%;
+	margin-top: 10px;
+	width: 100%;
 	&__rows {
+		width: 100%;
+
 		// border: 3px solid green;
 		// flex-shrink: 1;
 		display: flex;
 		flex-direction: row;
-		justify-content: space-between;
+		justify-content: space-evenly;
 	}
 
 	&__column {
@@ -166,99 +256,49 @@ $height_top_li: 5 * $wid_1;
 //todo  Последние новости: текст вылезает за пределы. Надо либо изменить высоту блока, либо уменьшить шрифт
 
 .champions {
-	padding: 0 5px;
-	flex: 0 1 70%;
+	flex: 0 1 60%;
 	// flex: 1 1 auto;
-	border: 3px solid yellow;
+	// border: 4px solid yellow;
+	// justify-content: space-evenly;
 	&__rows {
-		width: 100%;
+		// width:
 		display: flex;
 		flex-wrap: wrap;
-		// margin: 10px -10px;
-		margin: 0 auto;
-		// border: 5px solid red;
+		margin: 10px -10px;
 		justify-content: space-evenly;
 	}
 
 	&__column {
 		// height: 100%;
-		// display: flex;
-		padding: 15px 15px;
-		margin: 10px;
+		display: flex;
+		padding: 10px 10px;
+		// margin: 5px;
 		flex-direction: column;
 		// display: flex
-		// flex: 1 1 50%;
-		flex: 1 1 40%;
-		// border: 3px solid red;
+		flex: 0 1 45%;
+		// border: 2px solid green;
+		// align-self: baseline;
+	}
 
-		transition-duration: $time-delay-main;
-		// border: 5px solid green;
-	}
-}
-
-@media (max-width: 370px) {
-	.champions {
-		&__column {
-			// width: 60%;
-			
-			flex: 1 1 60%;
-		}
-	}
-	.player {
-		&__title {
-			border: 2px solid red;
-			flex: 0 0 10%;
-		}
-		&__text {
-			flex: 1 0 90%;
-		}
-	}
-	.right-navbar {
-		margin-top: 10px;
-	}
-}
-.player-1,
-.player-2,
-.player-3,
-.player-4 {
-	// position: relative;
+	// &__element {
+	// 	// display: flex;
+	// }
 }
 
 .player {
 	&__text {
-		// height: 300px;
+		display: flex;
+		border: 2px solid gold;
 
 		padding: 5px;
-		border: 2px solid black;
-		// overflow: scroll;
-		// display: flex;
-		// flex: 1 1 50%;
-		// flex: 1 1 auto;
+		// margin: 5px;
+		// border: 2px solid black;
 		&:hover {
-			// overflow: auto;
 			box-shadow: 0 0 10px 5px rgba(40, 114, 224, 0.623);
-			// &:hover {
-			.biography {
-				color: black;
-
-				// opacity: 0.8;
-				opacity: 1;
-				outline: 6px solid white;
-				background-color: white;
-				
-			}
 		}
 	}
 	&__title {
-		display: flex;
-		flex: 1 0 20%;
-		align-self: flex-end;
-		align-self: center;
-		// height: 80px;
-		// justify-self: center;
-		// border: 4px solid grey;
-		font-family: "Conv_CALIFR";
-		font-size: 25px;
+		font-size: 24px;
 		&:hover {
 			text-decoration: underline;
 		}
@@ -272,68 +312,89 @@ $height_top_li: 5 * $wid_1;
 }
 
 .biography {
-	// overflow: hidden;
-	// padding: 3px;
-
-	transition-duration: 3s, 0.3s;
-	transition-property: box-shadow, opacity;
-	height: 100%;
-	// height: 200px;
-	// height: auto;
+	// height: 100%;
+	transition-duration: 0.5s, 0s;
+	transition-property: opacity, outline;
 	opacity: 0;
-	// overflow: hidden;
 	text-align: left;
 	color: rgba(27, 27, 27, 0.897);
 	// padding: 3%;
+	// padding: 30px;
 	// font-size: 14px;
 	font-weight: 500;
-	// width: 100%;
-	// height: 100%;
-
-	// height: 50%;
-	// height: auto;
-	// height: 300px;
-	// display: flex;
-	// flex: 0 0 auto;
+	width: 100%;
+	height: 100%;
+	flex: 0 0 auto;
+	&:hover {
+		color: black;
+		// opacity: 0.8;
+		opacity: 1;
+		outline: 6px solid white;
+		background-color: white;
+	}
 }
 
-// .menu li {
-// 	&:hover {
-// 		background-color: rgba(17, 178, 199, 0.342);
-// 		color: blue;
-// 		font-weight: 700;
-// 		position: relative;
-// 		top: 2px;
-// 		left: 2px;
-// 		@extend .orange_box;
-// 		background: orange;
-// 		// box-shadow: 0 2px 3px 0 blue;
-// 	}
-// 	height: $height_top_li;
-// 	font-size: 24px;
-// 	font-style: oblique;
-// 	// height: 35px;
-// 	position: relative;
-// 	// padding: $wid_1 * 0.8;
-// 	padding: $wid_1 * 1.2;
-// 	text-align: center;
-// 	// font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-// 	font-weight: 600;
-// 	background-color: rgb(0, 174, 255);
+@media (max-width: 415px) {
+	.champions {
+		justify-content: space-evenly;
+		&__column {
+			// width: 60%;
 
+			flex: 1 1 60%;
+		}
+	}
+
+	.player {
+		padding: 0;
+		height: 300px;
+		&__title {
+			// @include bord(5px, red);
+			// @include bord;
+			font-size: 7px;
+			flex: 0 0 10%;
+			// margin: 0;
+		}
+		&__text {
+			flex: 1 0 90%;
+			// @include bord($color: red);
+		}
+	}
+
+	.right-navbar {
+		margin-top: 10px;
+	}
+}
+// .player-1,
+// .player-2,
+// .player-3,
+// .player-4 {
+// 	// position: relative;
 // }
 
-.top-side {
-	// .top {
+// .top-side {
+// .menu__row {
+.top {
+	// width: 90%;
+	height: 100%;
+	// width: 95%;
+	margin: 0 auto;
+	padding: 0;
+	margin: 0;
+	// border: 2px solid black;
 	// background: url("../img/bg_chess.jpg") center / 100% 100% no-repeat fixed;
-	background: url("../img/bg_chess.jpg") center / cover no-repeat fixed;
+	// background: url("../img/bg_chess.jpg") center / contain no-repeat fixed;
 	// opacity: 0.7;
+	// border: 2px solid black;
+	// background: url("../img/bg_chess.jpg") center / cover no-repeat fixed;
+	background: url("../img/bg_chess.jpg") center / cover no-repeat;
 }
 
+.top-side .container {
+	// border-top: 15px solid $bgColor;
+}
 .magnus {
 	// overflow: scroll;
 
-	border: 2px solid gold;
 	// align-self: baseline;
 	// justify-self: baseline;
 	flex: 1 1 auto;
@@ -343,16 +404,16 @@ $height_top_li: 5 * $wid_1;
 .anand {
 	// overflow: scroll;
 
-	border: 2px solid gold;
+	// border: 2px solid gold;
 	flex: 1 1 auto;
 	// background: url("../img/vishi.jpg") 25% 50% / cover no-repeat;
-	background: url("../img/vishi.jpg") 50% 50% / cover no-repeat;
+	background: url("../img/vishi.jpg") 40% 30% / cover no-repeat;
 	// background: url("../img/vishi.jpg") 50% 50% / cover no-repeat;
 }
 
 .kramnik {
 	flex: 1 1 100%;
-	background: url("../img/kramnik.jpg") 50% 50% / cover no-repeat;
+	background: url("../img/kramnik.jpg") 30% 50% / cover no-repeat;
 	// background: url("../img/kramnik.jpg") 50% 50% / cover no-repeat;
 }
 .kasparov {
@@ -365,7 +426,7 @@ $height_top_li: 5 * $wid_1;
 		margin: 0 auto;
 		&__rows {
 			flex-direction: column;
-			justify-content: space-between;
+			// justify-content: space-evenly;
 		}
 	}
 	.kasparov,
@@ -386,37 +447,33 @@ $height_top_li: 5 * $wid_1;
 		&__column {
 			// height: 100%;
 			display: flex;
-			padding: 10px 10px;
+			// padding: 10px 10px;
+			// margin: 5px;
 			flex-direction: column;
 			// display: flex
 			// flex: 1 1 50%;
-			// flex: 0 0 50%;
+			// flex: 0 0 40%;
 			// padding: 30px;
 		}
-		&__rows {
-			// margin: -30px;
-		}
+		// &__rows {
+		// 	// margin: -30px;
+		// }
 		//12
 	}
 }
 
-//todo не работает
 @media (max-width: 620px) {
-	.kasparov,
-	.magnus,
-	.anand,
-	.kramnik {
-		// width: 100%;
-		// flex: 1 1 100%;
-	}
+	// .kasparov,
+	// .magnus,
+	// .anand,
+	// .kramnik {
+	// 	// width: 100%;
+	// 	// flex: 1 1 100%;
+	// }
 	.biography {
 		// font-size: 20px;
 		font-size: 14px;
 	}
-	.player__text {
-	}
-
-	//todo проверить
 	.player__title {
 		font-size: 15px;
 	}
@@ -428,6 +485,16 @@ $height_top_li: 5 * $wid_1;
 		font-size: 10px;
 	}
 }
+@media (max-width: 415px) {
+	.biography {
+		display: inline-flex;
+		text-align: center;
+		align-self: center;
+		font-size: 20px;
+		@include bord;
+	}
+}
+
 .menu__title {
 	padding: 10px;
 	font-family: "Conv_CALIFR";
@@ -439,6 +506,7 @@ $height_top_li: 5 * $wid_1;
 $f-bas: 200px;
 $img_wid: 130px;
 .right-navbar {
+	margin-top: 30px;
 	flex: 0 1 25%;
 	// border: 10px solid grey;
 	&__column {
@@ -471,6 +539,7 @@ $img_wid: 130px;
 			background-color: orange;
 			// background: rgba(128, 0, 128, 0.);
 		}
+
 		&-1:hover ~ .right-navbar__item-1 {
 			display: block;
 			background-color: $inside-menu-bgcolor;
@@ -478,12 +547,12 @@ $img_wid: 130px;
 			// background-color: $inside-menu-bgcolor;
 		}
 
-		&-2:hover {
-			~ .right-navbar__item-2 {
-				display: flex;
-				background-color: $inside-menu-bgcolor;
-			}
+		// .right-navbar {
+		&-2:hover ~ .right-navbar__item-2 {
+			display: flex;
+			background-color: $inside-menu-bgcolor;
 		}
+
 		&-3:hover ~ .right-navbar__item-3 {
 			display: block;
 			background-color: $inside-menu-bgcolor;
@@ -516,24 +585,12 @@ $img_wid: 130px;
 	&__text {
 		font-size: 16px;
 		padding: 10px;
-		// height: 0;
-		// flex: 0 1 0.001%;
-		// display: none;
-		// opacity: 0;
-		// width: 50%;;
-		/*
-		&_1 {
-			// flex: 0 1 50%;
-			// border: 2px solid blue;
-		}
-		&_2 {
-		}
-		&-3 {
-		}
 		&-4 {
+			text-align: right;
+			// text-align:center;
 		}
-		*/
 	}
+
 	&__img {
 		margin: 10px;
 		&-1 {
@@ -560,6 +617,8 @@ $img_wid: 130px;
 			width: $img_wid;
 			height: $img_wid;
 			float: left;
+			// flex: 0 0 $f-bas;
+			// height: auto;
 			background: url("../img/right_nav_3.jpg") center / cover no-repeat;
 			margin-bottom: 10px;
 		}
@@ -572,6 +631,27 @@ $img_wid: 130px;
 	}
 }
 
+@media (max-width: 1172px) {
+	.right-navbar__title-1:hover ~ .right-navbar__item-1 {
+		display: block;
+	}
+	.right-navbar__title-3:hover ~ .right-navbar__item-3 {
+		display: block;
+	}
+
+	.right-navbar__item-1,
+	.right-navbar__item-3 {
+		// display: block;
+		// flex-direction: column;
+	}
+	.right-navbar__img-1,
+	.right-navbar__img-3 {
+		float: none;
+		width: auto;
+		// width: 100px;
+		// height: 100px;
+	}
+}
 // .img-1 {
 // 	border: 3px solid red;
 // 	// flex: 0 1 50%;
@@ -587,7 +667,7 @@ $img_wid: 130px;
 .champ-header {
 	background-color: #fff;
 	padding: 5px 0;
-	margin-bottom: 10px;
+	// margin-bottom: 10px;
 	font-size: 34px;
 	// color: black;
 	// color: rgb(255, 255, 255);
@@ -607,6 +687,8 @@ $img_wid: 130px;
 		height: 35px;
 		// background: url("../../img/1.png") 0 5px / 100% auto no-repeat;
 		// border: 1px solid black;
+		border-radius: 50%;
+		overflow: hidden;
 		background: url("../img/1.png") 0 0 / auto 100% no-repeat;
 		// background: url("../../img/1.png") 0 5px / cover no-repeat;
 		content: "";
@@ -622,186 +704,44 @@ $img_wid: 130px;
 	// font-size: 34px;champ-heade
 }
 
+.champ-header {
+	// position: none;
+	// width: 100%;
+	// width: 1400px;
+	// padding-left: 12px;
+	// border: 1px solid black;
+	// padding: 0;
+	// margin: 0;
+	// margin-top: -0.5px;
+	// outline: 4px solid $bgColor;
+	border: 4px solid $bgColor;
+	padding-left: 40px;
+	// margin-bottom: 20px;
+}
 @media (max-width: 594px) {
 	.news__main-title,
 	.chess-tasks__title,
 	.champ-header {
 		font-size: 24px;
-	}
-}
-.chess-tasks__title::before,
-.champ-header::before {
-	// margin-top: 0px;
-	// top: -3px;
-	// top: 0px;
-	// left: 0;
-}
-//! top-side
-
-//! news
-.news {
-	margin: 30px 0;
-	// background-color: grey;
-	&__main-title {
-	}
-
-	&__items {
-		position: relative;
-
-		width: 100%;
-		// border: 24px solid brown;
-	}
-}
-.news-element {
-	// transition-duration: ;
-	display: flex;
-	// border: 3px solid green;
-	height: 300px;
-
-	margin: -10px;
-	padding: 10px;
-	&__img {
-		padding: 10px;
-		// border: 2px solid black;
-		width: 300px;
-		// width: 100%;
-		// height: 200px;
-		// height: 100%;
-		display: flex;
-		border: 2px solid black;
-		flex: 0 0 40%;
-	}
-	&__text {
-		font-size: 24px;
-		line-height: 34px;
-		padding: 20px;
-		flex: 0 1 70%;
-	}
-}
-
-@media (max-width: 752px) {
-	.news-element__text {
-		font-size: 20px;
-		line-height: 28px;
-	}
-}
-@media (max-width: 594px) {
-	.news-element__text {
-		padding-top: 50px;
-		font-size: 14px;
-		line-height: 20px;
-	}
-}
-@media (max-width: 432px) {
-	.film__img {
-		padding-left: 0;
-		// flex: 1 1 100%;
-		height: 150px;
-	}
-	.world-cup {
-		flex-direction: column;
-	}
-	.news-element {
-		&__text {
-			padding-top: 10px;
-			font-size: 12px;
+		&::before {
+			// display: block;
+			width: 25px;
+			height: 25px;
+			top: 25%;
 		}
 	}
-}
-@media (max-width: 285px) {
-	.news-element__text div {
-		display: none;
-	}
-	.news-element__text {
-		font-size: 10px;
-		line-height: 16px;
-	}
-}
-
-@media (max-width: 220px) {
-	.news-element__text {
-		font-size: 6px;
-		line-height: 10px;
-	}
-}
-.film {
-	div div span {
-		font-weight: bold;
-	}
-	&__img {
-		// width: 100px;
-		// height: 100px;
-		background: url("../img/Royal_game.jfif") center / contain no-repeat;
-	}
-}
-
-.world-cup {
-	&__img {
-		// margin-bottom: 600px;
-		// width: 100px;
-		// height: 100px;
-		background: url("../img/match.jpg") center / contain no-repeat;
-	}
-	// display: none;
-}
-
-@media (max-width: 310px) {
-	.world-cup__img {
-		// flex: 0 0 auto;
-		background-position: 35px 0;
-		// background-size: cover;
-		// border: 2px solid red;
-		// padding: -20px;
-	}
-}
-.item-hidden {
-	// visibility: hidden;
-	display: none;
-}
-.display-none {
-	display: none;
-	// opacity: 0;
-}
-
-.btn-color-active {
-	background-color: rgba(16, 22, 16, 0.952);
-}
-.btn-color-passive {
-	background-color: $inside-menu-bgcolor;
-}
-
-.but-change {
-	position: absolute;
-	top: 20px;
-	right: 50px;
-	width: 60px;
-	height: 60px;
-	// background-color: $inside-menu-bgcolor;
-	border-radius: 50%;
-	border: 2px solid black;
-	&:hover {
-		box-shadow: 0 0 5px 4px orange;
-	}
-
-	// &:active{
-	// 	background-color: rgba(0, 0, 255, 0.548);
-	// 	~.world-cup {display: none;}
-	// 	~.film {display: flex;
-	// 	}
+	// .champ-header {
+	// margin-bottom: 100px;
 	// }
 }
-
-@media (max-width: 594px) {
-	.but-change {
-		width: 30px;
-		height: 30px;
-		// left: 300px;
-		right: 30px;
-	}
-}
-// .news__items{
-// display: flex;
+// .chess-tasks__title::before,
+// .champ-header::before {
+// 	// margin-top: 0px;
+// 	// top: -3px;
+// 	// top: 0px;
+// 	// left: 0;
 // }
+//! top-side
 
 @mixin chess-task_($name_pict) {
 	// width: 23%;
@@ -813,7 +753,7 @@ $img_wid: 130px;
 .chess-tasks {
 	// margin-bottom: 20px;\
 	// display: flex;
-	border: 2px solid gold;
+	// border: 2px solid gold;
 	&__container {
 		// width: 800px;
 		width: 100%;
@@ -824,7 +764,7 @@ $img_wid: 130px;
 		// align-content: center;
 		// justify-content: center;
 		height: 400px;
-		border: 4px solid black;
+		// border: 4px solid black;
 		// padding-left: 30px;
 		// background: linear-gradient(90deg, rgba(3,0,36,1) 1%, rgba(9,121,45,0.7932692307692308) 27%, rgba(209,14,19,1) 51%, rgba(28,5,164,1) 72%, rgba(0,212,255,1) 100%);
 	}
@@ -849,7 +789,7 @@ $img_wid: 130px;
 		// justify-content: space-around;
 		align-content: center;
 		// align-self: center;
-		border: 3px solid red;
+		// border: 3px solid red;
 		justify-content: space-around;
 	}
 	&__element {
@@ -869,7 +809,8 @@ $img_wid: 130px;
 
 		&-title {
 			flex: 0 1 10%;
-			border: 2px solid grey;
+			text-transform: uppercase;
+			// border: 2px solid grey;
 			text-align: center;
 			font-size: 20px;
 			color: white;
@@ -899,7 +840,13 @@ $img_wid: 130px;
 		@include chess-task_("../img/chess4.jpg");
 	}
 }
-
+@media (max-width: 1172px) {
+	.right-navbar__item-1,
+	.right-navbar__item-3 {
+		// display: block;
+		// flex-direction: column;
+	}
+}
 @media (max-width: 893px) {
 	.chess-tasks {
 		&__columns {
@@ -935,7 +882,7 @@ $img_wid: 130px;
 // }
 .foot {
 	font-style: italic;
-	background-color: grey;
+	// background-color: grey;
 	height: 200px;
 	// width: 100%;
 	// width: 1200px;
@@ -1034,6 +981,183 @@ form .submit {
 
 //! news
 
+//! news
+.news {
+	z-index: 0;
+	margin: 30px 0;
+	// background-color: grey;
+	// &__main-title {
+	// }
+
+	&__items {
+		position: relative;
+
+		width: 100%;
+		// border: 24px solid brown;
+	}
+}
+.news-element {
+	// transition-duration: ;
+	display: flex;
+	// border: 3px solid green;
+	height: 300px;
+
+	margin: -10px;
+	padding: 10px;
+	&__img {
+		padding: 10px;
+		// border: 2px solid black;
+		width: 300px;
+		// width: 100%;
+		// height: 200px;
+		// height: 100%;
+		display: flex;
+		// border: 2px solid black;
+		flex: 0 0 40%;
+	}
+	&__text {
+		font-size: 24px;
+		line-height: 34px;
+		padding: 20px;
+		flex: 0 1 70%;
+	}
+}
+
+@media (max-width: 752px) {
+	.news-element__text {
+		font-size: 20px;
+		line-height: 28px;
+		padding-top: 35px;
+	}
+}
+@media (max-width: 594px) {
+	.news-element__text {
+		padding-top: 65px;
+		font-size: 14px;
+		line-height: 20px;
+	}
+}
+@media (max-width: 432px) {
+	.film__img {
+		padding-left: 0;
+		// flex: 1 1 100%;
+		height: 150px;
+	}
+	.world-cup {
+		flex-direction: column;
+	}
+	.news-element {
+		&__text {
+			padding-top: 10px;
+			font-size: 12px;
+		}
+	}
+}
+@media (max-width: 285px) {
+	.news-element__text div {
+		display: none;
+	}
+	.news-element__text {
+		font-size: 10px;
+		line-height: 16px;
+	}
+}
+
+@media (max-width: 220px) {
+	.news-element__text {
+		font-size: 6px;
+		line-height: 10px;
+	}
+}
+.film {
+	div div span {
+		font-weight: bold;
+	}
+	&__img {
+		// width: 100px;
+		// height: 100px;
+		background: url("../img/Royal_game.jfif") center / contain no-repeat;
+	}
+}
+
+.world-cup {
+	&__img {
+		// margin-bottom: 600px;
+		// width: 100px;
+		// height: 100px;
+		background: url("../img/match.jpg") center / contain no-repeat;
+	}
+	// display: none;
+}
+
+@media (max-width: 310px) {
+	.world-cup__img {
+		// flex: 0 0 auto;
+		background-position: 35px 0;
+		// background-size: cover;
+		// border: 2px solid red;
+		// padding: -20px;
+	}
+}
+.item-hidden {
+	// visibility: hidden;
+	display: none;
+}
+.display-none {
+	display: none;
+	// opacity: 0;
+}
+
+.btn-color-active {
+	background-color: rgba(100, 241, 123, 0.952);
+}
+.but-nav-bloat-color-passive {
+	background-color: $inside-menu-bgcolor;
+}
+
+.but-change {
+	position: absolute;
+	top: -25px;
+	right: 100px;
+	width: 45px;
+	height: 45px;
+	// background-color: $inside-menu-bgcolor;
+	border-radius: 50%;
+	border: 2px solid black;
+	&:hover {
+		box-shadow: 0 0 5px 4px orange;
+	}
+}
+
+@media (max-width: 594px) {
+	.but-change {
+		width: 30px;
+		height: 30px;
+		// left: 300px;
+		right: 60px;
+	}
+}
+@media (max-width: 382px) {
+	.but-change {
+		right: 20px;
+	}
+}
+
+@media (max-width: 351px) {
+	.but-change {
+		top: 20px;
+		right: 4px;
+	}
+}
+@media (max-width: 288px) {
+	.but-change {
+		top: -33px;
+		right: 4px;
+	}
+}
+
+//! news
+
 .foot {
 	display: flex;
 	background-color: black;
@@ -1053,9 +1177,9 @@ form .submit {
 		color: white;
 		// margin-bottom: 20px;
 	}
-	.title-2 {
-		// padding-top: 20px;
-	}
+	// .title-2 {
+	// 	// padding-top: 20px;
+	// }
 	&__row {
 		display: flex;
 		border: 2px solid black;
@@ -1097,10 +1221,10 @@ form .submit {
 	.foot {
 		height: 600px;
 	}
-	.foot__element {
-		// justify-content: center;
-		// align-content: center;
-	}
+	// .foot__element {
+	// 	// justify-content: center;
+	// 	// align-content: center;
+	// }
 	.foot__element-1 {
 		flex: 1 1 100%;
 		// text-align: center;
@@ -1173,8 +1297,8 @@ form .submit {
 		// justify-content: center;
 		// border: 2px solid white;
 	}
-	.title-1,
-	.title-2 {
-		// padding: 20px;
-	}
+	// .title-1,
+	// .title-2 {
+	// 	// padding: 20px;
+	// }
 }
