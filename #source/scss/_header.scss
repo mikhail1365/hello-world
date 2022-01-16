@@ -72,9 +72,9 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	box-shadow: 0 2px 3px 0 blue;
 }
 
-.top-side {
+header {
 	// padding: 10px;
-	margin: 40px 0;
+	margin: 0 0 40px 0;
 	// height: 150px;
 	background: grey;
 	// background: url("../../img/bg_chess.jpg") 0 0 /cover ;
@@ -109,7 +109,7 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	// border: 2px solid green;
 	// justify-content: center;
 	&__bar {
-		width: 90%;
+		// width: 90%;
 
 		// height: 200px;
 		// border: 2px solid red;
@@ -118,7 +118,9 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 
 		// justify-content: start;
 		justify-self: start;
-		padding: 10px;
+		padding: 5px;
+		display: flex;
+		justify-content: space-between;
 		&__panel div {
 			display: none;
 		}
@@ -159,6 +161,18 @@ $inside-menu-bgcolor: rgba(67, 215, 235, 0.719);
 	}
 }
 
+// @media (max-width: 697px) {
+@media (max-width: 777px) {
+	.menu__element {
+		height: 60px;
+		// font-size: 50px;
+		// padding: 0;
+		&:first-child,
+		&:last-child {
+			padding-top: 18px;
+		}
+	}
+}
 // @media (max-width: 767px) {
 // 	.menu__bar {
 // 		// width: 100%;

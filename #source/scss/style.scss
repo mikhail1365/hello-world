@@ -7,17 +7,98 @@
 	font-style: normal;
 }
 
+$time-delay-main: 0.5s;
+$bgColor: rgb(252, 255, 227);
+
+@import "_nullstyle.scss";
+@import "_navigation.scss";
+@import "_header.scss";
+@import "_right_nb.scss";
+@import "_news.scss";
+@import "_chess-tasks.scss";
+
 @mixin bord($width: 2px, $color: black) {
 	border: $width solid $color;
 }
-// .menu, .menu__bar{
+.container {
+	@include bord($color: yellow);
+}
 
-// width: 100%;
-// }
-// .menu__row{
-// width: 100%;
-// position: relative;
-// }
+.menu {
+	&__logo {
+		max-width: 20%;
+		// max-height: 200%;
+		@include bord($color: green);
+		// height: 100%;
+		// height: 30px;
+		// height: 100%;
+		// position: relative;
+		overflow: hidden;	
+		// padding: 0 0 5% 0;
+		// margin: 0 0 25px 0;
+		width: 100%;
+		height: 45px;
+		// height: 100%;
+		// height: 45px;
+		// height: 50%;
+		position: relative;
+		z-index: 2;
+		img {
+			// position: absolute;
+			// top: 0;
+			// left: 0px;
+			// object-fit: cover;
+			object-fit: contain;
+			width: 100%;
+			height: 100%;
+			// object-fit: none;
+			// object-fit: fill;
+			// object-position: center;
+			// 	// flex: 0 0 60px
+			// 	max-width: 100%;
+			// 	// height: 50px;
+			// 	@include bord($color: green);
+		}
+	}
+}
+
+.menu {
+	position: relative;
+	z-index: 2;
+	// padding-left: 0;
+	// margin-left: 0;
+	@include bord($color: red);
+	&__title {
+	}
+
+	&__bar {
+		// padding-left: 0;
+		// margin-left: 0;
+		@include bord;
+	}
+
+	&__burger {
+	}
+
+	&__row {
+	}
+}
+.header {
+	// height: 300px;
+	position: relative;
+
+	// @include bord($color: green);
+}
+
+header:before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(253, 220, 220);
+}
 
 //todo с пом space between развести в стороны бургер и меню вверху
 //todo можно  "шахматы" сделать на одном уровне с бургером после 767 px, а потом меню выставить под полоской, в которой бургер и "шахматы"
@@ -25,52 +106,70 @@
 	// position: absolute;
 	// right: 0;
 	display: none;
-	margin-left: 25px;
+	// margin-left: 25px;
 	min-width: 35px;
 	min-height: 35px;
 }
-@media (max-width: 767px) {
-	$burg-height: 35px;
 
-	.menu__burger {
-		display: block;
-		position: relative;
-		right: 0;
-		width: 35px;
-		height: 35px;
-		&:before,
-		&:after {
-			content: "";
-			background-color: rgb(0, 0, 0);
-			position: absolute;
-			width: 100%;
-			height: 2px;
-			left: 0;
-		}
-		&:before {
-			top: 0;
-		}
-		&:after {
-			bottom: 0;
-		}
-		span {
-			background-color: rgb(0, 0, 0);
-			position: absolute;
-			width: 100%;
-			height: 2px;
-			left: 0;
-			top: $burg-height/2;
-		}
-	}
-}
+// @media (max-width: 767px) {
+// 	.menu__logo{
+// 		height: 100%;
+// 	}
+// 	.menu__title{
+// 		display: none;
+// 	}
+// 	$burg-height: 35px;
+// 	.menu{
+// 		// margin: 0 auto;
+// 		padding: 0;
+// 		// padding-left: 100px;	
+// 	}
+// 	.menu__bar{
+// 		padding: 0;
+// 	}
+// 	.menu__row{
+// 		position: fixed;
+// 		top: 0;
+// 		left: 0;
+// 		width: 100%;
+// 		height: 20px;
+// 		// height: 6px;
+// 		background-color: rgb(113, 113, 113);
+// 		z-index: 1;
+// 	}
+// 	.menu__burger {
+// 		z-index: 3;
+// 		display: block;
+// 		position: relative;
+// 		right: 0;
+// 		width: 35px;
+// 		height: 35px;
+// 		&:before,
+// 		&:after {
+// 			content: "";
+// 			background-color: rgb(0, 0, 0);
+// 			position: absolute;
+// 			width: 100%;
+// 			height: 2px;
+// 			right: 0;
+// 		}
+// 		&:before {
+// 			top: 0;
+// 		}
+// 		&:after {
+// 			bottom: 0;
+// 		}
+// 		span {
+// 			background-color: rgb(0, 0, 0);
+// 			position: absolute;
+// 			width: 100%;
+// 			height: 2px;
+// 			left: 0;
+// 			top: $burg-height/2;
+// 		}
+// 	}
+// }
 
-@import "_nullstyle.scss";
-// @import "right_nb.scss";
-@import "_top-side.scss";
-// @import "_news.scss"
-$time-delay-main: 0.5s;
-
-$bgColor: rgb(252, 255, 227);
 body {
 	background-color: $bgColor;
 	// padding: 30px;
@@ -104,11 +203,11 @@ body {
 
 	// margin-left: 150px;
 
-	max-width: 1200px;
+	max-width: 1300px;
 	width: 100%;
 	height: 100%;
 	// height:80%;
-	@include bord(3px, green);
+	// @include bord(3px, green);
 
 	// border: 2px solid purple;
 }
@@ -119,97 +218,22 @@ body {
 	}
 }
 
-@media (max-width: 992px) {
+@media (max-width: 955px) {
 	.container {
 		max-width: 750px;
 	}
 }
 
-.navigation {
-	margin-top: 20px;
-	border-radius: 0 10px;
-	content: "";
-	z-index: 1;
-	background-color: black;
-	opacity: 0.9;
-	// position: sticky;
-	position: fixed;
-	padding: 3px;
-	right: 1%;
-	// border: 1px solid black;
-	&:hover {
-		ul {
-			display: block;
-		}
-		.but-nav-bloat {
-			display: none;
-		}
-	}
-	// &__row{
-	// }
-}
-
-.but-nav-bloat {
-	font-size: 20px;
-}
-.navigation ul {
-	display: none;
-
-	// margin-top: 20px;
-	// float: right;
-}
-.navigation li a {
-	font-size: 20px;
-	color: rgb(71, 218, 255);
-	// padding: 0 20px;
-	&:hover {
-		text-transform: uppercase;
-	}
-}
-.navigation ul li {
-	width: 200px;
-	// height: 60px;
-	font-weight: 600;
-	// color: red;
-	padding: 10px;
-	margin-bottom: 5px;
-	border: 2px solid purple;
-	// background-color: grey;
-	border-radius: 0 10px;
-}
-
-.but-nav-bloat {
-	position: absolute;
-	top: 3px;
-	// right: 10px;
-	background-color: black;
-	color: white;
-	font-weight: 700;
-	right: 30px;
-	width: 60px;
-	height: 60px;
-	// background-color: $inside-menu-bgcolor;
-	border-radius: 50%;
-	border: 2px solid black;
-	&:hover {
-		display: none;
-		+ .container ul {
-			display: block;
-		}
-		box-shadow: 0 0 5px 4px orange;
-	}
-}
-
 .top-side {
-	@include bord(3px, red);
+	// @include bord(3px, red);
 }
-
 
 $wid_1: 10px;
 
 $height_top_li: 5 * $wid_1;
 
 //! top-side
+
 .top {
 	// border: 3px solid red;
 
@@ -241,19 +265,6 @@ $height_top_li: 5 * $wid_1;
 // 		flex-direction: column;
 // 	}
 // }
-@media (max-width: 697px) {
-	.menu__element {
-		height: 60px;
-		// font-size: 50px;
-		// padding: 0;
-		&:first-child,
-		&:last-child {
-			padding-top: 18px;
-		}
-	}
-}
-
-//todo  Последние новости: текст вылезает за пределы. Надо либо изменить высоту блока, либо уменьшить шрифт
 
 .champions {
 	flex: 0 1 60%;
@@ -418,7 +429,7 @@ $height_top_li: 5 * $wid_1;
 }
 .kasparov {
 	flex: 1 1 100%;
-	background: url("../img/GKasparov.jpg") 50% 50% / cover no-repeat;
+	background: url("../img/GKasparov.jpg") 60% 50% / cover no-repeat;
 }
 
 @media (max-width: 955px) {
@@ -503,6 +514,7 @@ $height_top_li: 5 * $wid_1;
 	font-style: italic;
 	color: rgb(133, 0, 0);
 }
+
 $f-bas: 200px;
 $img_wid: 130px;
 .right-navbar {
@@ -652,15 +664,6 @@ $img_wid: 130px;
 		// height: 100px;
 	}
 }
-// .img-1 {
-// 	border: 3px solid red;
-// 	// flex: 0 1 50%;
-// 	width: 50%;
-// }
-
-// $film_wid: 200px;
-
-// margin-top: 40px;
 
 .news__main-title,
 .chess-tasks__title,
@@ -705,15 +708,6 @@ $img_wid: 130px;
 }
 
 .champ-header {
-	// position: none;
-	// width: 100%;
-	// width: 1400px;
-	// padding-left: 12px;
-	// border: 1px solid black;
-	// padding: 0;
-	// margin: 0;
-	// margin-top: -0.5px;
-	// outline: 4px solid $bgColor;
 	border: 4px solid $bgColor;
 	padding-left: 40px;
 	// margin-bottom: 20px;
@@ -730,167 +724,14 @@ $img_wid: 130px;
 			top: 25%;
 		}
 	}
-	// .champ-header {
-	// margin-bottom: 100px;
-	// }
 }
-// .chess-tasks__title::before,
-// .champ-header::before {
+
 // 	// margin-top: 0px;
 // 	// top: -3px;
 // 	// top: 0px;
 // 	// left: 0;
 // }
 //! top-side
-
-@mixin chess-task_($name_pict) {
-	// width: 23%;
-	// height: 100%;
-	// background: url("../../img/chess1.jpg") 0 0 /cover no-repeat;
-	background: url($name_pict) center / contain no-repeat;
-	// text-align: bottom;
-}
-.chess-tasks {
-	// margin-bottom: 20px;\
-	// display: flex;
-	// border: 2px solid gold;
-	&__container {
-		// width: 800px;
-		width: 100%;
-		height: 100%;
-		// width: 1300px;
-		// display: flex;
-		// align-content: flex-end;
-		// align-content: center;
-		// justify-content: center;
-		height: 400px;
-		// border: 4px solid black;
-		// padding-left: 30px;
-		// background: linear-gradient(90deg, rgba(3,0,36,1) 1%, rgba(9,121,45,0.7932692307692308) 27%, rgba(209,14,19,1) 51%, rgba(28,5,164,1) 72%, rgba(0,212,255,1) 100%);
-	}
-	&__columns {
-		margin: 0 auto;
-		height: 400px;
-		background: linear-gradient(
-			90deg,
-			rgba(76, 69, 157, 1) 0%,
-			rgba(92, 170, 14, 1) 36%,
-			rgba(28, 5, 164, 1) 72%,
-			rgba(0, 212, 255, 1) 100%
-		);
-		width: 100%;
-		// width: 1000px;
-		display: flex;
-		// flex-direction: column;
-		height: 250px;
-		flex-wrap: wrap;
-		// flex: 1 0 25%;
-
-		// justify-content: space-around;
-		align-content: center;
-		// align-self: center;
-		// border: 3px solid red;
-		justify-content: space-around;
-	}
-	&__element {
-		display: flex;
-		flex-direction: column;
-		// flex-wrap: wrap;
-		flex: 1 1 15%;
-		height: 100%;
-		// border: 2px solid green;
-		padding: 10px;
-		// margin: 10px;
-		justify-content: space-around;
-	}
-
-	&__img {
-		flex: 0 1 80%;
-
-		&-title {
-			flex: 0 1 10%;
-			text-transform: uppercase;
-			// border: 2px solid grey;
-			text-align: center;
-			font-size: 20px;
-			color: white;
-			font-weight: 600;
-			// display: flex;
-			// align-self: center;
-			// justify-self: center;
-			// padding-top: 5px;
-		}
-	}
-
-	&__img1 {
-		// height: 100%;
-		flex: 0 1 80%;
-		// width: 200px;
-		// background: url("../../img/chess1.jpg") 0 0 /cover no-repeat;
-		// background: url("../img/chess1.jpg") 0 0 /contain no-repeat;
-		@include chess-task_("../img/chess1.jpg");
-	}
-	&__img2 {
-		@include chess-task_("../img/chess2.jpg");
-	}
-	&__img3 {
-		@include chess-task_("../img/chess3.jfif");
-	}
-	&__img4 {
-		@include chess-task_("../img/chess4.jpg");
-	}
-}
-@media (max-width: 1172px) {
-	.right-navbar__item-1,
-	.right-navbar__item-3 {
-		// display: block;
-		// flex-direction: column;
-	}
-}
-@media (max-width: 893px) {
-	.chess-tasks {
-		&__columns {
-			height: 500px;
-		}
-		&__element {
-			height: 50%;
-			flex: 0 1 40%;
-		}
-	}
-}
-
-@media (max-width: 550px) {
-	.chess-tasks {
-		&__columns {
-			align-self: center;
-			width: 70%;
-			height: 1000px;
-		}
-		&__element {
-			height: 25%;
-			flex: 0 1 100%;
-		}
-	}
-}
-// @media (max-width: 700px) {
-// 	.chess-tasks__columns {
-// 		flex-direction: column;
-// 	}
-// 	.chess-tasks__container {
-// 		height: 900px;
-// 	}
-// }
-.foot {
-	font-style: italic;
-	// background-color: grey;
-	height: 200px;
-	// width: 100%;
-	// width: 1200px;
-	// margin-left: 150px;
-	padding: 30px;
-	font-weight: 600;
-	color: white;
-}
 
 // .menu ul .button:nth-child(2){
 // .menu li a:nth-child(odd){
@@ -982,190 +823,26 @@ form .submit {
 //! news
 
 //! news
-.news {
-	z-index: 0;
-	margin: 30px 0;
-	// background-color: grey;
-	// &__main-title {
-	// }
-
-	&__items {
-		position: relative;
-
-		width: 100%;
-		// border: 24px solid brown;
-	}
-}
-.news-element {
-	// transition-duration: ;
-	display: flex;
-	// border: 3px solid green;
-	height: 300px;
-
-	margin: -10px;
-	padding: 10px;
-	&__img {
-		padding: 10px;
-		// border: 2px solid black;
-		width: 300px;
-		// width: 100%;
-		// height: 200px;
-		// height: 100%;
-		display: flex;
-		// border: 2px solid black;
-		flex: 0 0 40%;
-	}
-	&__text {
-		font-size: 24px;
-		line-height: 34px;
-		padding: 20px;
-		flex: 0 1 70%;
-	}
-}
-
-@media (max-width: 752px) {
-	.news-element__text {
-		font-size: 20px;
-		line-height: 28px;
-		padding-top: 35px;
-	}
-}
-@media (max-width: 594px) {
-	.news-element__text {
-		padding-top: 65px;
-		font-size: 14px;
-		line-height: 20px;
-	}
-}
-@media (max-width: 432px) {
-	.film__img {
-		padding-left: 0;
-		// flex: 1 1 100%;
-		height: 150px;
-	}
-	.world-cup {
-		flex-direction: column;
-	}
-	.news-element {
-		&__text {
-			padding-top: 10px;
-			font-size: 12px;
-		}
-	}
-}
-@media (max-width: 285px) {
-	.news-element__text div {
-		display: none;
-	}
-	.news-element__text {
-		font-size: 10px;
-		line-height: 16px;
-	}
-}
-
-@media (max-width: 220px) {
-	.news-element__text {
-		font-size: 6px;
-		line-height: 10px;
-	}
-}
-.film {
-	div div span {
-		font-weight: bold;
-	}
-	&__img {
-		// width: 100px;
-		// height: 100px;
-		background: url("../img/Royal_game.jfif") center / contain no-repeat;
-	}
-}
-
-.world-cup {
-	&__img {
-		// margin-bottom: 600px;
-		// width: 100px;
-		// height: 100px;
-		background: url("../img/match.jpg") center / contain no-repeat;
-	}
-	// display: none;
-}
-
-@media (max-width: 310px) {
-	.world-cup__img {
-		// flex: 0 0 auto;
-		background-position: 35px 0;
-		// background-size: cover;
-		// border: 2px solid red;
-		// padding: -20px;
-	}
-}
-.item-hidden {
-	// visibility: hidden;
-	display: none;
-}
-.display-none {
-	display: none;
-	// opacity: 0;
-}
-
-.btn-color-active {
-	background-color: rgba(100, 241, 123, 0.952);
-}
-.but-nav-bloat-color-passive {
-	background-color: $inside-menu-bgcolor;
-}
-
-.but-change {
-	position: absolute;
-	top: -25px;
-	right: 100px;
-	width: 45px;
-	height: 45px;
-	// background-color: $inside-menu-bgcolor;
-	border-radius: 50%;
-	border: 2px solid black;
-	&:hover {
-		box-shadow: 0 0 5px 4px orange;
-	}
-}
-
-@media (max-width: 594px) {
-	.but-change {
-		width: 30px;
-		height: 30px;
-		// left: 300px;
-		right: 60px;
-	}
-}
-@media (max-width: 382px) {
-	.but-change {
-		right: 20px;
-	}
-}
-
-@media (max-width: 351px) {
-	.but-change {
-		top: 20px;
-		right: 4px;
-	}
-}
-@media (max-width: 288px) {
-	.but-change {
-		top: -33px;
-		right: 4px;
-	}
-}
-
 //! news
 
 .foot {
+	font-style: italic;
+	// background-color: grey;
+	// width: 100%;
+	// width: 1200px;
+	// margin-left: 150px;
+	padding: 30px;
+	font-weight: 600;
+	color: white;
+
 	display: flex;
 	background-color: black;
 	height: 300px;
 	width: 100%;
 	&__title {
 		display: inline-flex;
-		text-align: center;
+		// text-align: center;
+		text-align: left;
 		height: 80px;
 		display: flex;
 		flex: 1 1 auto;
