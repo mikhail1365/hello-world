@@ -95,10 +95,13 @@ h1, h2, h3, h4, h5, h6 {
   right: 1%;
 }
 
-.navigation:hover {
+.navigation
+{
+
+&:hover {
   background-color: black;
 }
-
+}
 .navigation:hover ul {
   display: block;
 }
@@ -125,7 +128,8 @@ h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
 }
 
-.navigation ul li {
+.navigation ul{
+  li {
   width: 200px;
   font-weight: 600;
   padding: 10px;
@@ -133,7 +137,7 @@ h1, h2, h3, h4, h5, h6 {
   border: 2px solid purple;
   border-radius: 0 10px;
 }
-
+}
 .but-nav-float {
   z-index: 49;
   position: absolute;
@@ -454,7 +458,6 @@ header {
 
 .news-element__img {
   padding: 10px;
-  border: 5px solid black;
   width: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -711,7 +714,6 @@ header {
 
 .menu__logo {
   max-width: 15%;
-  border: 2px solid green;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -861,6 +863,8 @@ body {
 .container {
   margin: 0 auto;
   max-width: 1400px;
+  max-width: 1300px;
+  width: 100%;
   height: 100%;
 }
 
