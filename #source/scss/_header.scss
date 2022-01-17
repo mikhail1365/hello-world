@@ -118,7 +118,7 @@ header {
 
 		// justify-content: start;
 		justify-self: start;
-		padding: 5px;
+		padding: 0 5px;
 		display: flex;
 		justify-content: space-between;
 		&__panel div {
@@ -149,12 +149,13 @@ header {
 		// transition-property: position;
 		&:hover {
 			// box-shadow: 0 2px 3px 0 blue;
+			
 			@extend .hover-func;
 		}
 		& a {
 			// background-color: $inside-menu-bgcolor;
 			color: blue;
-			font-weight: 100;
+			font-weight: 500;
 			font-family: "Conv_CALIFR";
 			font-size: 24px;
 		}
